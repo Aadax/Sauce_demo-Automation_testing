@@ -4,28 +4,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.WaitUtils;
-
 import java.util.List;
 
 public class ProductsPO extends BasePO {
-    private final By ProductsObject = By.cssSelector("btn btn_primary btn_small btn_inventory");
+    private final By ProductsObject = By.className("add-to-cart-sauce-labs-backpack");
     public ProductsPO(WebDriver driver)
     {
         super(driver);
     }
     private final WaitUtils wait = new WaitUtils();
-    //private final By AddToCard = By.cssSelector("btn btn_primary btn_small btn_inventory");
-    public void CountObjects()
-    {
-        //wait.waitForElementToBeVisible(AddToCard,driver);
+    public void CountObjects() throws InterruptedException {
+
         //wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(ProductsObject));
-        List<WebElement>products=driver.findElements(By.cssSelector("button.btn.btn_primary.btn_small.btn_inventory"));
-        int numberOfProducts = products.size();
-        System.out.println("Liczba produktów: " + numberOfProducts);
+        Thread.sleep(3000);
+        List<WebElement>products=driver.findElements(By.className("add-to-cart-sauce-labs-backpack"));
+        System.out.println("Amount of products: " + products.size());
     }
-//    public void VerifyCounter()
-//    {
-//        wait.waitForElementToBeVisible(ProductsObject, driver);
-//        Assert.assertEquals(expectedUsername, driver.findElement(ProductsObject).getAttribute("value"));
-//    }
+
+/*    public void VerifyCounter()
+    {
+        wait.waitForElementToBeVisible(ProductObject, driver);
+        Assert.assertEquals(expectedUsername, driver.findElement(ProductsObject).getAttribute("value"));
+    }
+*/
 }

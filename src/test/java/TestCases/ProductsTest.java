@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import pageobjects.ProductsPO;
 
-public class ProductsTest extends LoginTest
+public class ProductsTest extends BaseTest
 {
     ProductsPO ProductObject;
     @Before
@@ -16,6 +16,5 @@ public class ProductsTest extends LoginTest
     public void ProductCounter() throws InterruptedException
     {
      ProductObject.CountObjects();
-     driver.close();
     }
 }
